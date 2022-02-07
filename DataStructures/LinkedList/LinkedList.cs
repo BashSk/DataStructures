@@ -218,7 +218,38 @@ namespace DataStructures.LinkedList
 
         public void ReverseWithIteration()
         {
+            if(!IsEmpty() || Count() > 1)
+            {
+                var current = head.Next;
+                var currentPlusOne = current?.Next;
+                var currentPlusTwo = currentPlusOne?.Next;
+                int index = 0;
 
+                while(currentPlusOne != null)
+                {
+                    var temp = current;
+                    if(index == 0)
+                    {
+                        temp.Next = null;
+                    }
+
+                    if(currentPlusTwo!= null)
+                    {
+                        currentPlusOne.Next = temp;
+                        current = currentPlusOne;
+                        currentPlusOne = currentPlusTwo;
+                        currentPlusTwo = currentPlusTwo?.Next;
+                    }
+                    else
+                    {
+                        currentPlusOne.Next = temp;
+                        head.Next = currentPlusOne;
+                        currentPlusOne = null;
+                    }
+                    index++;
+                }
+
+            }
         }
 
         public void ReverseWithRecursion()
