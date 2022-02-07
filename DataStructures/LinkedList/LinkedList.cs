@@ -252,6 +252,26 @@ namespace DataStructures.LinkedList
             }
         }
 
+        public void ReverseWithIteration_v2()
+        {
+            if (!IsEmpty() || Count() > 1)
+            {
+                Node<T> prev = null;
+
+                Node<T> next = null;
+                Node<T> current = head.Next;
+
+                while(current != null)
+                {
+                    next = current.Next;
+                    current.Next = prev;
+                    prev = current;
+                    current = next;
+                }
+                head.Next = prev;
+            }
+        }
+
         public void ReverseWithRecursion()
         {
 

@@ -193,6 +193,26 @@ namespace DataStructures.Tests
             // Assert.
             Assert.Equal(expectedResult, actualResult);
         }
+
+        [Fact]
+        public void ReverseListWithIteration_v2()
+        {
+            // Arrange.
+            MyLinkedList<int> linkedList = new();
+            linkedList.AddNodeAtBeginning(20);
+            linkedList.AddNodeAtBeginning(15);
+            linkedList.AddNodeAtBeginning(10);
+            linkedList.AddNodeAtBeginning(5);
+            var expectedResult = new List<int>() { 20, 15, 10, 5 };
+
+
+            // Act
+            linkedList.ReverseWithIteration_v2();
+            var actualResult = linkedList.Traverse();
+
+            // Assert.
+            Assert.Equal(expectedResult, actualResult);
+        }
         public static IEnumerable<object[]> TestTraverseData =>
             new List<object[]>
             {
